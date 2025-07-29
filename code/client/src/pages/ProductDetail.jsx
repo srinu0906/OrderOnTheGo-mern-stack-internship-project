@@ -17,7 +17,7 @@ const ProductDetail = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/products/fetch?id=${id}`);
+        const res = await axios.get(`https://orderonthego-mern-stack-internship.onrender.com/api/products/fetch?id=${id}`);
         setProduct(res.data[0]); // Assuming single match
       } catch (err) {
         console.error('Failed to fetch product', err);
@@ -34,7 +34,7 @@ const ProductDetail = () => {
         return;
     }
 
-      await axios.post('http://localhost:5000/api/cart/addItem', {
+      await axios.post('https://orderonthego-mern-stack-internship.onrender.com/api/cart/addItem', {
         userId: user._id,
         productId,
         quantity
@@ -71,7 +71,7 @@ const handleOrderNow = async () => {
         
       };
 
-      const res = await axios.post('http://localhost:5000/api/orders/place', orderPayload);
+      const res = await axios.post('https://orderonthego-mern-stack-internship.onrender.com/api/orders/place', orderPayload);
       alert('Order placed successfully!');
     }, (error) => {
       console.error('Failed to get location:', error);

@@ -17,8 +17,8 @@ const Header = () => {
     const fetchData = async () => {
       try {
         const [productsRes, restaurantsRes] = await Promise.all([
-          axios.get('http://localhost:5000/api/products/fetch'),
-          axios.get('http://localhost:5000/api/restaurants/all'),
+          axios.get('https://orderonthego-mern-stack-internship.onrender.com/api/products/fetch'),
+          axios.get('https://orderonthego-mern-stack-internship.onrender.com/api/restaurants/all'),
         ]);
 
         const products = productsRes.data.map(p => ({

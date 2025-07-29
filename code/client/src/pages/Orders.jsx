@@ -16,7 +16,7 @@ const Orders = () => {
   const fetchProductDetails = async (productId) => {
     if (productCache[productId]) return productCache[productId];
     try {
-      const res = await axios.get(`http://localhost:5000/api/products/fetch?id=${productId}`);
+      const res = await axios.get(`https://orderonthego-mern-stack-internship.onrender.com/api/products/fetch?id=${productId}`);
       if (res.data.length > 0) {
         const product = res.data[0];
         setProductCache(prev => ({ ...prev, [productId]: product }));
@@ -30,7 +30,7 @@ const Orders = () => {
 
   const fetchOrders = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/orders/history?userId=${user._id}`);
+      const res = await axios.get(`https://orderonthego-mern-stack-internship.onrender.com/api/orders/history?userId=${user._id}`);
       const allOrders = res.data;
 
       const live = allOrders.filter(o => o.status.toLowerCase() !== 'delivered');
@@ -53,7 +53,7 @@ const Orders = () => {
 
   const handleCancelOrder = async (orderId) => {
     try {
-      await axios.post(`http://localhost:5000/api/orders/delete?orderId=${orderId}`);
+      await axios.post(`https://orderonthego-mern-stack-internship.onrender.com/api/orders/delete?orderId=${orderId}`);
       alert('Order cancelled.');
       fetchOrders(); // Refresh orders after cancellation
     } catch (err) {
@@ -85,7 +85,7 @@ const Orders = () => {
     }
 
     try {
-      await axios.post(`http://localhost:5000/api/restaurants/rating?restaurantId=${restaurantId}&rating=${rating}`);
+      await axios.post(`https://orderonthego-mern-stack-internship.onrender.com/api/restaurants/rating?restaurantId=${restaurantId}&rating=${rating}`);
 
       alert("Rating submitted successfully!");
     } catch (err) {

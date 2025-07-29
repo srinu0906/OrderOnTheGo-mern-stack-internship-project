@@ -14,7 +14,7 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/user/register', form);
+      const res = await axios.post('https://orderonthego-mern-stack-internship.onrender.com/api/auth/user/register', form);
       login(res.data.user); // auto-login after registration
       navigate('/');
     } catch (err) {

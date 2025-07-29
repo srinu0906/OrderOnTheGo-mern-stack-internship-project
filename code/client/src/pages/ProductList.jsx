@@ -24,7 +24,7 @@ const ProductList = () => {
         if (category) query.push(`category=${category}`);
         const queryString = query.join('&');
 
-        const res = await axios.get(`http://localhost:5000/api/products/fetch?${queryString}`);
+        const res = await axios.get(`https://orderonthego-mern-stack-internship.onrender.com/api/products/fetch?${queryString}`);
         setProducts(res.data);
       } catch (err) {
         console.error('Error fetching products:', err);

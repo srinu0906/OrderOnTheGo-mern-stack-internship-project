@@ -23,7 +23,7 @@ const Home = () => {
   useEffect(() => {
     const fetchPromoted = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/restaurants/promoted');
+        const res = await axios.get('https://orderonthego-mern-stack-internship.onrender.com/api/restaurants/promoted');
         setPopularRestaurants(res.data);
       } catch (err) {
         console.error('Error fetching promoted restaurants:', err);
@@ -36,7 +36,7 @@ const Home = () => {
   useEffect(() => {
     const fetchRestaurants = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/restaurants/all');
+        const res = await axios.get('https://orderonthego-mern-stack-internship.onrender.com/api/restaurants/all');
         setRestaurants(res.data);
       } catch (err) {
         console.error('Error fetching restaurants:', err);

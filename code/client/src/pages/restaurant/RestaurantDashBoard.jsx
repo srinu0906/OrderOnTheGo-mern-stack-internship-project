@@ -45,7 +45,7 @@ const RestaurantDashboard = () => {
     }
 
     try {
-      await axios.post(`http://localhost:5000/api/orders/updateStatus/${orderId}`, {
+      await axios.post(`https://orderonthego-mern-stack-internship.onrender.com/api/orders/updateStatus/${orderId}`, {
         status: newStatus
       });
       alert('Order status updated!');
@@ -58,7 +58,7 @@ const RestaurantDashboard = () => {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/products/fetch?restaurantId=${restaurant._id}`);
+      const res = await axios.get(`https://orderonthego-mern-stack-internship.onrender.com/api/products/fetch?restaurantId=${restaurant._id}`);
       setProducts(res.data);
     } catch (err) {
       console.error('Error fetching products:', err);
@@ -67,7 +67,7 @@ const RestaurantDashboard = () => {
 
   const fetchOrders = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/orders/restaurantOrders/${restaurant._id}`);
+      const res = await axios.get(`https://orderonthego-mern-stack-internship.onrender.com/api/orders/restaurantOrders/${restaurant._id}`);
       const orders = res.data;
       setRestaurantOrders(orders);
 
@@ -76,7 +76,7 @@ const RestaurantDashboard = () => {
 
       await Promise.all(uniqueIds.map(async (id) => {
         if (!productCache[id]) {
-          const prodRes = await axios.get(`http://localhost:5000/api/products/fetch?id=${id}`);
+          const prodRes = await axios.get(`https://orderonthego-mern-stack-internship.onrender.com/api/products/fetch?id=${id}`);
           if (prodRes.data.length > 0) {
             const product = prodRes.data[0];
             setProductCache(prev => ({ ...prev, [id]: product }));
@@ -98,7 +98,7 @@ const RestaurantDashboard = () => {
 
   const handleAddProduct = async () => {
     try {
-      await axios.post('http://localhost:5000/api/products/insert', {
+      await axios.post('https://orderonthego-mern-stack-internship.onrender.com/api/products/insert', {
         ...newProduct,
         restaurantId: restaurant._id,
         price: Number(newProduct.price),
@@ -114,7 +114,7 @@ const RestaurantDashboard = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.post(`http://localhost:5000/api/products/delete?productId=${id}`);
+      await axios.post(`https://orderonthego-mern-stack-internship.onrender.com/api/products/delete?productId=${id}`);
       fetchProducts();
     } catch (err) {
       alert('Failed to delete');
@@ -123,7 +123,7 @@ const RestaurantDashboard = () => {
 
   const handleUpdateProduct = async () => {
     try {
-      await axios.post(`http://localhost:5000/api/products/update/${editProduct._id}`, {
+      await axios.post(`https://orderonthego-mern-stack-internship.onrender.com/api/products/update/${editProduct._id}`, {
         price: Number(editProduct.price),
         discount: Number(editProduct.discount),
         category: editProduct.category,

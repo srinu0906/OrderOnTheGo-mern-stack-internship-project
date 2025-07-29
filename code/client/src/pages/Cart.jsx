@@ -13,7 +13,7 @@ const Cart = () => {
 
   const fetchCart = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/cart/getItems?userId=${user._id}`);
+      const res = await axios.get(`https://orderonthego-mern-stack-internship.onrender.com/api/cart/getItems?userId=${user._id}`);
 
       // console.log(user._id);
       setCart(res.data);
@@ -21,7 +21,7 @@ const Cart = () => {
       // Fetch product details
       const productData = {};
       for (const item of res.data.items) {
-        const productRes = await axios.get(`http://localhost:5000/api/products/fetch?id=${item.productId}`);
+        const productRes = await axios.get(`https://orderonthego-mern-stack-internship.onrender.com/api/products/fetch?id=${item.productId}`);
         if (productRes.data.length > 0) {
           productData[item.productId] = productRes.data[0];
         }
@@ -40,7 +40,7 @@ const Cart = () => {
 
   const handleRemove = async (productId) => {
     try {
-      await axios.post('http://localhost:5000/api/cart/deleteItem', {
+      await axios.post('https://orderonthego-mern-stack-internship.onrender.com/api/cart/deleteItem', {
         userId: user._id,
         productId
       });
@@ -73,12 +73,12 @@ const handlePlaceOrder = async () => {
 
     try {
       // Step 1: Place the order
-      await axios.post('http://localhost:5000/api/orders/place', orderData);
+      await axios.post('https://orderonthego-mern-stack-internship.onrender.com/api/orders/place', orderData);
       alert("Order placed successfully!");
 
       // Step 2: Delete each item from the cart
       for (const item of cart.items) {
-        await axios.post('http://localhost:5000/api/cart/deleteItem', {
+        await axios.post('https://orderonthego-mern-stack-internship.onrender.com/api/cart/deleteItem', {
           userId: user._id,
           productId: item.productId
         });

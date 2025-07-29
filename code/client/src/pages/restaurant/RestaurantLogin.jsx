@@ -16,7 +16,7 @@ const RestaurantLogin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/restaurant/login', form);
+      const res = await axios.post('https://orderonthego-mern-stack-internship.onrender.com/api/auth/restaurant/login', form);
       const restaurantData = res.data[0]; // Assuming server returns [restaurantObj]
       login(restaurantData);
       

@@ -22,7 +22,7 @@ const RestaurantRegister = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/auth/restaurant/register', form);
+      await axios.post('https://orderonthego-mern-stack-internship.onrender.com/api/auth/restaurant/register', form);
       alert('Registration successful!');
       navigate('/restaurant/login');
     } catch (err) {

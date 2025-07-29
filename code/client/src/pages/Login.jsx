@@ -15,7 +15,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/user/login', { email, password });
+      const res = await axios.post('https://orderonthego-mern-stack-internship.onrender.com/api/auth/user/login', { email, password });
       login(res.data.user); // Store user info in context
       navigate('/');
     } catch (err) {

@@ -14,15 +14,15 @@ const AdminPage = () => {
  const fetchOverview = async () => {
   try {
     // Fetch user and restaurant counts
-    const overviewRes = await axios.get('http://localhost:5000/api/admin/dashboardOverview');
+    const overviewRes = await axios.get('https://orderonthego-mern-stack-internship.onrender.com/api/admin/dashboardOverview');
     setUsersCount(overviewRes.data.totalUsers);
     setRestaurantCount(overviewRes.data.totalRestaurants);
 
     // Fetch all restaurants
-    const allRes = await axios.get('http://localhost:5000/api/restaurants/all');
+    const allRes = await axios.get('https://orderonthego-mern-stack-internship.onrender.com/api/restaurants/all');
 
     // Fetch promoted restaurants
-    const promotedRes = await axios.get('http://localhost:5000/api/restaurants/promoted');
+    const promotedRes = await axios.get('https://orderonthego-mern-stack-internship.onrender.com/api/restaurants/promoted');
     const promotedIds = promotedRes.data.map(r => r._id);
 
     // Mark promoted status
@@ -40,7 +40,7 @@ const AdminPage = () => {
 
   const promoteRestaurant = async (restaurantId) => {
   try {
-    await axios.post(`http://localhost:5000/api/admin/promoteRestaurant/${restaurantId}`);
+    await axios.post(`https://orderonthego-mern-stack-internship.onrender.com/api/admin/promoteRestaurant/${restaurantId}`);
     fetchOverview(); // refresh list
   } catch (err) {
     console.error('Failed to promote:', err);
