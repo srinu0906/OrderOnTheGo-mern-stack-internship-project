@@ -13,7 +13,7 @@ const app = new express();
 app.use(express.json())
 app.use(cors());
 
-mongoose.connect("mongodb://localhost:27017/SBfoods").
+mongoose.connect("mongodb+srv://vakada2004:vakada2004@sbfoodsdemoproject.jnjcdyh.mongodb.net/?retryWrites=true&w=majority&appName=SBFoodsDemoProject").
 then(console.log("Database connected successfully")).
 catch((err)=> console.log("error connecting mongoDb"));
 
