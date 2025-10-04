@@ -8,7 +8,7 @@ import Footer from '../components/Footer';
 import '../styles/Home.css';
 
 const categories = [
-  { name: 'Breakfast', image: 'https://thepepper.in/wp-content/uploads/2019/02/Idly-Vada.jpg' },
+  { name: 'Breakfast', image: 'https://www.shutterstock.com/image-photo/south-indian-breakfast-vegetable-idly-260nw-283294874.jpg' },
   { name: 'Meals', image: 'https://rakskitchen.net/wp-content/uploads/2013/08/9634876480_20d7ac8196_o.jpg' },
   { name: 'Biriyani', image: 'https://5.imimg.com/data5/SELLER/Default/2020/9/TM/KJ/OG/2707316/mutton-biriyani-masala-500x500.jpg' },
   { name: 'Veg', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlSJrMlNj7HvyrNNJG6U82ady6rciMYqQtTw&s' },
